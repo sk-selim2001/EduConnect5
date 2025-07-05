@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | EduPro Tutors</title>
+    <!-- Bootstrap 5.3.7 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Rubik:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --accent: #4cc9f0;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #4ade80;
+            --warning: #facc15;
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rubik', sans-serif;
+            color: #334155;
+            background-color: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        /* Header & Navigation */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            padding: 1rem 0;
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 0.7rem 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.8rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled .navbar-brand {
+            font-size: 1.6rem;
+        }
+
+        .navbar-brand span {
+            color: var(--accent);
+        }
+
+        .nav-link {
+            font-weight: 500;
+            margin: 0 0.5rem;
+            position: relative;
+            color: var(--dark);
+            transition: all 0.3s ease;
+            padding: 0.5rem 0 !important;
+        }
+
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            background: var(--gradient);
+            transition: width 0.3s ease;
+            border-radius: 10px;
+        }
+
+        .nav-link:hover:after,
+        .nav-link.active:after {
+            width: 100%;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary);
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            border: none;
+            padding: 0.8rem 1.8rem;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(67, 97, 238, 0.4);
+        }
+
+        .btn-outline-primary {
+            color: var(--primary);
+            border-color: var(--primary);
+            padding: 0.8rem 1.8rem;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-primary:hover {
+            background: var(--gradient);
+            color: white;
+            border-color: transparent;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(67, 97, 238, 0.3);
+        }
+
+        .navbar-toggler:focus,
+        .navbar-toggler:active,
+        .navbar-toggler-icon:focus {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 6rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            color: #475569;
+            max-width: 600px;
+        }
+
+        /* Contact Form Section */
+        .contact-section {
+            padding: 6rem 0;
+            background-color: #f8f9fa;
+        }
+
+        .contact-form {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-control,
+        .form-select {
+            border: 1px solid #dee2e6;
+            transition: all 0.3s;
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            border-color: #212529;
+            box-shadow: 0 0 0 0.25rem rgba(33, 37, 41, 0.1);
+        }
+
+        /* Contact Info Section */
+        .contact-info {
+            background: linear-gradient(to bottom, #f8fafc 0%, #f1f5f9 100%);
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            height: 100%;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(67, 97, 238, 0.15);
+        }
+
+        .info-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 10px 20px rgba(67, 97, 238, 0.2);
+        }
+
+        /* Map Section */
+        .map-section {
+            padding: 0 0 6rem;
+        }
+
+        .map-container {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            height: 400px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 6rem 0;
+            background-color: white;
+        }
+
+        .accordion-button {
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 1.25rem 1.5rem;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background-color: rgba(67, 97, 238, 0.05);
+            color: var(--primary);
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: rgba(67, 97, 238, 0.2);
+        }
+
+        .accordion-item {
+            margin-bottom: 1rem;
+            border-radius: 10px !important;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--gradient);
+            padding: 5rem 0;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section:before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            top: -150px;
+            right: -150px;
+        }
+
+        .cta-section:after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            bottom: -100px;
+            left: -100px;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: #cbd5e1;
+            padding: 5rem 0 2rem;
+        }
+
+        .footer-title {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: var(--accent);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-links a {
+            display: block;
+            color: #94a3b8;
+            text-decoration: none;
+            margin-bottom: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            margin-top: 3rem;
+            display: flex;
+            text-align: center;
+            justify-content: space-between;
+        }
+
+        .friendscampus {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .animate-pulse {
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1199px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .contact-form {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 4rem 0;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .cta-title {
+                font-size: 2rem;
+            }
+
+            .contact-form {
+                padding: 2rem !important;
+            }
+
+            .btn-lg {
+                padding: 0.75rem !important;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .cta-title {
+                font-size: 1.8rem;
+            }
+
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+
+            .btn-primary,
+            .btn-outline-primary {
+                padding: 0.6rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .copyright {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">EduPro <span>Tutors</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style="outline: none;"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="class.html">Classes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="announcement.html">Announcements</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="guidance.html">Guidance</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <div class="ms-lg-3 mt-2 mt-lg-0">
+                    <a href="#" class="btn btn-outline-primary">Book a Demo Class</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="hero-title animate__animated animate__fadeInDown">Get in Touch With Us</h1>
+                    <p class="hero-subtitle animate__animated animate__fadeIn animate__delay-1s">Have questions about
+                        our tutoring services or need academic guidance? Our team is here to help you with all your
+                        educational needs.</p>
+                    <div
+                        class="d-flex flex-wrap gap-3 justify-content-center animate__animated animate__fadeIn animate__delay-1s">
+                        <a href="#contact-form" class="btn btn-primary">Send a Message</a>
+                        <a href="tel:+919876543210" class="btn btn-outline-primary"><i
+                                class="fas fa-phone-alt me-2"></i>Call Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-section" id="contact-form">
+        <h2 class="text-center">Get in Touch</h2>
+        <p class="text-center">We'll respond within 24 hours</p>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-8 col-xl-6">
+                    <div class="contact-form animate__animated animate__fadeIn p-4 p-md-5 bg-white rounded-4 shadow-sm">
+                        <!-- <h2 class="text-center mb-4 display-6 fw-light">Get in Touch</h2>
+                        <p class="text-center text-muted mb-5">We'll respond within 24 hours</p> -->
+
+                        <form class="needs-validation" novalidate>
+                            <div class="row g-3">
+                                <!-- Name Field -->
+                                <div class="col-12 col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control rounded-3" id="name" placeholder=" "
+                                            required>
+                                        <label for="name">Your Name</label>
+                                        <div class="invalid-feedback">
+                                            Please provide your name
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Email Field -->
+                                <div class="col-12 col-md-6">
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control rounded-3" id="email" placeholder=" "
+                                            required>
+                                        <label for="email">Email Address</label>
+                                        <div class="invalid-feedback">
+                                            Please provide a valid email
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Phone Field -->
+                                <div class="col-12 col-md-6">
+                                    <div class="form-floating">
+                                        <input type="tel" class="form-control rounded-3" id="phone" placeholder=" ">
+                                        <label for="phone">Phone Number (Optional)</label>
+                                    </div>
+                                </div>
+
+                                <!-- Subject Field -->
+                                <div class="col-12 col-md-6">
+                                    <div class="form-floating">
+                                        <select class="form-select rounded-3" id="subject" required>
+                                            <option value="" selected disabled>Select a subject</option>
+                                            <option>General Inquiry</option>
+                                            <option>Admissions</option>
+                                            <option>Career Guidance</option>
+                                            <option>Study Abroad</option>
+                                            <option>Technical Support</option>
+                                        </select>
+                                        <label for="subject">Subject</label>
+                                        <div class="invalid-feedback">
+                                            Please select a subject
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Message Field -->
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <textarea class="form-control rounded-3" id="message" style="height: 150px"
+                                            placeholder=" " required></textarea>
+                                        <label for="message">Your Message</label>
+                                        <div class="invalid-feedback">
+                                            Please enter your message
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Submit Button -->
+                                <div class="col-12 mt-4">
+                                    <button type="submit" class="btn btn-dark btn-lg w-100 py-2 rounded-2 fw-normal">
+                                        Send Message
+                                        <i class="bi bi-send ms-2"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Info Section -->
+    <section class="contact-info">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="text-center">Our Contact Information</h2>
+                <p class="text-center">Multiple ways to reach us for any questions or support</p>
+            </div>
+
+            <div class="row g-4 mt-5">
+                <div class="col-md-4">
+                    <div class="info-card animate__animated animate__fadeInUp">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h4>Our Location</h4>
+                        <p>123 Education Street, Mumbai, Maharashtra 400001, India</p>
+                        <a href="#map" class="btn btn-outline-primary mt-3">View on Map</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="info-card animate__animated animate__fadeInUp animate__delay-1s">
+                        <div class="info-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h4>Phone Numbers</h4>
+                        <p>+91 98765 43210 (Admissions)</p>
+                        <p>+91 87654 32109 (Support)</p>
+                        <a href="tel:+919876543210" class="btn btn-outline-primary mt-3">Call Now</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="info-card animate__animated animate__fadeInUp animate__delay-2s">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h4>Email Addresses</h4>
+                        <p>info@edupro.in (General)</p>
+                        <p>support@edupro.in (Help)</p>
+                        <a href="mailto:info@edupro.in" class="btn btn-outline-primary mt-3">Email Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section" id="map">
+        <div class="container">
+            <div class="map-container animate__animated animate__fadeIn">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.715641873089!2d72.8242143153786!3d19.04472665837983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c8dfb4c1e6d5%3A0x1f64e6a7b1b0c0a5!2s123%20Education%20Street%2C%20Mumbai%2C%20Maharashtra%20400001!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
+                    allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="text-center">Contact FAQs</h2>
+                <p class="text-center">Answers to common questions about getting in touch with us</p>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-lg-8 mx-auto">
+                    <div class="accordion" id="contactFAQ">
+                        <div class="accordion-item animate__animated animate__fadeInUp animate__delay-1s">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq1" aria-expanded="false" aria-controls="faq1">
+                                    What are your working hours?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
+                                <div class="accordion-body">
+                                    <p>Our office is open from Monday to Saturday, 9:00 AM to 7:00 PM IST. We are closed
+                                        on Sundays and public holidays.</p>
+                                    <p>For urgent inquiries outside these hours, you can:</p>
+                                    <ul>
+                                        <li>Email us at support@edupro.in (24/7 response within 12 hours)</li>
+                                        <li>Use our contact form (responses during next business day)</li>
+                                        <li>Call our emergency support line at +91 98765 43210 (for existing students
+                                            only)
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item animate__animated animate__fadeInUp animate__delay-1s">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+                                    How quickly can I expect a response to my inquiry?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
+                                <div class="accordion-body">
+                                    <p>We strive to respond to all inquiries as quickly as possible:</p>
+                                    <ul>
+                                        <li><strong>Phone calls:</strong> Immediate response during working hours</li>
+                                        <li><strong>Emails:</strong> Within 4-6 business hours</li>
+                                        <li><strong>Contact form submissions:</strong> Within 12 business hours</li>
+                                        <li><strong>Social media messages:</strong> Within 24 hours</li>
+                                    </ul>
+                                    <p class="mt-3">For complex inquiries that require research or coordination with
+                                        other departments, we may need up to 48 hours to provide a comprehensive
+                                        response.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item animate__animated animate__fadeInUp animate__delay-2s">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+                                    Can I visit your office without an appointment?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
+                                <div class="accordion-body">
+                                    <p>While we welcome visitors, we strongly recommend scheduling an appointment to
+                                        ensure the appropriate staff member is available to assist you. Walk-in hours
+                                        are limited to:</p>
+                                    <ul>
+                                        <li><strong>Monday-Friday:</strong> 10:00 AM - 12:00 PM and 3:00 PM - 5:00 PM
+                                        </li>
+                                        <li><strong>Saturday:</strong> 10:00 AM - 1:00 PM</li>
+                                    </ul>
+                                    <p class="mt-3">For specialized services like career counseling or admissions
+                                        consultations, appointments are mandatory. You can schedule an appointment by
+                                        calling +91 98765 43210 or using our online booking system.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item animate__animated animate__fadeInUp animate__delay-3s">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
+                                    Do you have regional offices in other cities?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
+                                <div class="accordion-body">
+                                    <p>Yes, EduPro Tutors has regional offices in several major cities across India:</p>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h5 class="mt-3">North India</h5>
+                                            <ul>
+                                                <li>Delhi: +91 11 2345 6789</li>
+                                                <li>Chandigarh: +91 172 456 7890</li>
+                                                <li>Jaipur: +91 141 345 6789</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h5 class="mt-3">South India</h5>
+                                            <ul>
+                                                <li>Bangalore: +91 80 2345 6789</li>
+                                                <li>Chennai: +91 44 3456 7890</li>
+                                                <li>Hyderabad: +91 40 4567 8901</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <p class="mt-3">For a complete list of our regional offices with addresses and
+                                        contact details, please visit our <a href="about.html">About Us</a> page.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h3 class="cta-title">Still Have Questions?</h3>
+                <p class="mb-4">Our support team is available to help you with any questions about our tutoring
+                    services, admissions process, or academic programs.</p>
+                <div class="d-flex flex-wrap justify-content-center gap-4">
+                    <a href="tel:+919876543210" class="btn btn-light btn-lg px-4 py-3 animate-pulse"><i
+                            class="fas fa-phone-alt me-2"></i>Call Support</a>
+                    <a href="mailto:support@edupro.in" class="btn btn-outline-light btn-lg px-5 py-3"><i
+                            class="fas fa-envelope me-2"></i>Email Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <h3 class="navbar-brand text-white">EduPro <span>Tutors</span></h3>
+                    <p class="mt-3">Providing quality education through personalized tutoring, online classes, and
+                        coaching for students across India since 2010.</p>
+                    <div class="social-links mt-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About Us</a>
+                        <a href="class.html">Courses</a>
+                        <a href="guidance.html">Guidance</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="footer-title">Resources</h5>
+                    <div class="footer-links">
+                        <a href="announcement.html">Announcements</a>
+                        <a href="#">Study Materials</a>
+                        <a href="#">Practice Tests</a>
+                        <a href="guidance.html">Career Guidance</a>
+                        <a href="#">FAQ</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h5 class="footer-title">Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> 123 Education Street, Mumbai, India
+                        </li>
+                        <li class="mb-2"><i class="fas fa-phone-alt me-2"></i> +91 98765 43210</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@edupro.in</li>
+                        <li class="mb-2"><i class="fas fa-clock me-2"></i> Mon-Sat: 9AM - 7PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 EduPro Tutors | All Rights Reserved | Designed with <i
+                        class="fas fa-heart text-danger"></i> for Education </p>
+                <p>Powered by <a href="https://www.friendscampus.com/" target="_blank" rel="noopener"
+                        class="friendscampus">FriendsCampus</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js"
+        integrity="sha384-7qAoOXltbVP82dhxHAUje59V5r2YsVfBafyUDxEdApLPmcdhBPg1DKg1ERo0BZlK"
+        crossorigin="anonymous"></script>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Animation on scroll
+        document.addEventListener('DOMContentLoaded', function () {
+            const animateElements = document.querySelectorAll('.animate__animated');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const animation = entry.target.getAttribute('data-animation');
+                        entry.target.classList.add(animation);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            animateElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+
+        // Form validation
+        (function () {
+            'use strict';
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation');
+
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+        })();
+    </script>
+</body>
+
+</html>

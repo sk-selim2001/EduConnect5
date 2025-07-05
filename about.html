@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | EduPro Tutors - Quality Education Solutions in India</title>
+    <!-- Bootstrap 5.3.7 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Rubik:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --accent: #4cc9f0;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #4ade80;
+            --warning: #facc15;
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rubik', sans-serif;
+            color: #334155;
+            background-color: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        /* Header & Navigation */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            padding: 1.2rem 0;
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.8rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .navbar-brand span {
+            color: var(--accent);
+        }
+
+        .nav-link {
+            font-weight: 500;
+            margin: 0 0.5rem;
+            position: relative;
+            color: var(--dark);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            background: var(--gradient);
+            transition: width 0.3s ease;
+            border-radius: 10px;
+        }
+
+        .nav-link:hover:after,
+        .nav-link.active:after {
+            width: 100%;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary);
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            border: none;
+            padding: 0.8rem 1.8rem;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(67, 97, 238, 0.4);
+        }
+
+        .btn-outline-primary {
+            color: var(--primary);
+            border-color: var(--primary);
+            padding: 0.8rem 1.8rem;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-primary:hover {
+            background: var(--gradient);
+            color: white;
+            border-color: transparent;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(67, 97, 238, 0.3);
+        }
+
+        /* About Hero Section */
+        .about-hero {
+            background: linear-gradient(rgba(67, 97, 238, 0.9), rgba(67, 97, 238, 0.8)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 8rem 0 5rem;
+            color: white;
+            text-align: center;
+        }
+
+        .about-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .about-hero p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Mission Section */
+        .mission-section {
+            padding: 6rem 0;
+            background-color: white;
+        }
+
+        .mission-content {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .mission-text {
+            flex: 1;
+        }
+
+        .mission-image {
+            flex: 1;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .mission-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Values Section */
+        .values-section {
+            padding: 6rem 0;
+            background: linear-gradient(to bottom, #f8fafc 0%, #f1f5f9 100%);
+        }
+
+        .value-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(67, 97, 238, 0.15);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 2rem;
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            padding: 6rem 0;
+            background-color: white;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--primary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 10px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: white;
+            border: 4px solid var(--primary);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .left::after {
+            right: -17px;
+        }
+
+        .right::after {
+            left: -17px;
+        }
+
+        .timeline-content {
+            padding: 2rem;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Testimonials */
+        .testimonial-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin: 1rem;
+            position: relative;
+        }
+
+        .testimonial-card:before {
+            content: "" ";
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 5rem;
+            color: rgba(67, 97, 238, 0.1);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            margin-top: 1.5rem;
+        }
+
+        .author-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 1rem;
+            border: 3px solid var(--primary);
+            padding: 3px;
+        }
+
+        .author-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--gradient);
+            padding: 5rem 0;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section:before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            top: -150px;
+            right: -150px;
+        }
+
+        .cta-section:after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            bottom: -100px;
+            left: -100px;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: #cbd5e1;
+            padding: 5rem 0 2rem;
+        }
+
+        .footer-title {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: var(--accent);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-links a {
+            display: block;
+            color: #94a3b8;
+            text-decoration: none;
+            margin-bottom: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            margin-top: 3rem;
+            display: flex;
+            text-align: center;
+            justify-content: space-between;
+        }
+
+        .friendscampus {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        .delay-4 {
+            animation-delay: 0.8s;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .mission-content {
+                flex-direction: column;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item::after {
+                left: 15px;
+            }
+
+            .right {
+                left: 0%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-hero p {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .about-hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">EduPro <span>Tutors</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="class.html">Classes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="announcement.html">Announcements</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="guidance.html">Guidance</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <div class="ms-3">
+                    <button class="btn btn-outline-primary">Book a Demo Class</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <h1 class="animate-fadeIn">Our Journey in Transforming Education</h1>
+            <p class="animate-fadeIn delay-1">Since 2010, EduPro Tutors has been revolutionizing the education landscape
+                in India, providing personalized learning experiences that empower students to reach their full
+                potential.</p>
+            <div class="mt-4 animate-fadeIn delay-2">
+                <a href="#mission" class="btn btn-light btn-lg me-2">Our Mission</a>
+                <a href="#team" class="btn btn-outline-light btn-lg">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission-section" id="mission">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="mb-3">Our Mission & Vision</h2>
+                    <p class="text-muted">Driving educational excellence across India</p>
+                </div>
+            </div>
+
+            <div class="mission-content">
+                <div class="mission-text animate-fadeIn">
+                    <h3 class="mb-4">Empowering the Next Generation of Learners</h3>
+                    <p class="mb-4">At EduPro Tutors, our mission is to provide accessible, high-quality education that
+                        transcends traditional learning barriers. We believe every student deserves personalized
+                        attention and a learning path tailored to their unique strengths and challenges.</p>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="d-flex">
+                                <div class="me-3">
+                                    <i class="fas fa-graduation-cap text-primary fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h5>Quality Education</h5>
+                                    <p>Delivering world-class instruction through certified educators</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="d-flex">
+                                <div class="me-3">
+                                    <i class="fas fa-users text-primary fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h5>Personalized Approach</h5>
+                                    <p>Customized learning plans for each student</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="d-flex">
+                                <div class="me-3">
+                                    <i class="fas fa-rupee-sign text-primary fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h5>Affordable Pricing</h5>
+                                    <p>Quality education accessible to all income groups</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="d-flex">
+                                <div class="me-3">
+                                    <i class="fas fa-laptop-house text-primary fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h5>Flexible Learning</h5>
+                                    <p>Online and in-person options to suit every need</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mission-image animate-fadeIn delay-1">
+                    <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=800&q=80"
+                        alt="EduPro Mission">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="mb-3">Our Core Values</h2>
+                    <p class="text-muted">The principles that guide everything we do</p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3 animate-fadeIn delay-1">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <h4>Student-Centric</h4>
+                        <p>We prioritize student needs, learning styles, and goals above all else, creating personalized
+                            educational experiences.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 animate-fadeIn delay-2">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h4>Innovation</h4>
+                        <p>Continuously evolving our teaching methodologies and incorporating technology to enhance
+                            learning outcomes.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 animate-fadeIn delay-3">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <h4>Integrity</h4>
+                        <p>Maintaining honesty, transparency, and ethical practices in all our interactions and
+                            operations.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 animate-fadeIn delay-4">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4>Excellence</h4>
+                        <p>Striving for the highest standards in teaching quality, curriculum development, and student
+                            support.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="mb-3">Our Journey</h2>
+                    <p class="text-muted">Milestones in educational excellence</p>
+                </div>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item left animate-fadeIn">
+                    <div class="timeline-content">
+                        <h4>2010 - Foundation</h4>
+                        <p>Founded in Mumbai with 5 tutors and 30 students, focusing on CBSE curriculum support.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right animate-fadeIn delay-1">
+                    <div class="timeline-content">
+                        <h4>2013 - Expansion</h4>
+                        <p>Expanded to 3 cities with 50+ tutors and launched our first online learning platform.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left animate-fadeIn delay-2">
+                    <div class="timeline-content">
+                        <h4>2016 - Recognition</h4>
+                        <p>Awarded "Best Emerging Education Provider" by the National Education Council.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right animate-fadeIn delay-3">
+                    <div class="timeline-content">
+                        <h4>2018 - Tech Innovation</h4>
+                        <p>Launched AI-powered learning assistant and mobile app with 10,000+ downloads in first month.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item left animate-fadeIn delay-4">
+                    <div class="timeline-content">
+                        <h4>2020 - Pandemic Response</h4>
+                        <p>Provided free online resources to 50,000+ students during COVID-19 lockdowns.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right animate-fadeIn delay-4">
+                    <div class="timeline-content">
+                        <h4>2023 - National Reach</h4>
+                        <p>Now serving students in 25+ cities with 850+ expert tutors and 12,000+ students.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-6 bg-white">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="mb-3">What Our Students & Parents Say</h2>
+                    <p class="text-muted">Hear from our learning community</p>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <p>"The transformation in my daughter's confidence and grades after joining EduPro has been
+                            remarkable. The tutors truly care about each student's success."</p>
+                        <div class="testimonial-author">
+                            <div class="author-img">
+                                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Parent">
+                            </div>
+                            <div>
+                                <h6 class="mb-0">Rekha Patel</h6>
+                                <small class="text-muted">Parent, Ahmedabad</small>
+                                <div class="mt-1">
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <p>"As a working professional, I needed flexible learning options. EduPro's online courses
+                            allowed me to upskill without compromising my job."</p>
+                        <div class="testimonial-author">
+                            <div class="author-img">
+                                <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="Student">
+                            </div>
+                            <div>
+                                <h6 class="mb-0">Vikram Singh</h6>
+                                <small class="text-muted">Professional, Bangalore</small>
+                                <div class="mt-1">
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <p>"The JEE preparation program was comprehensive and well-structured. My tutor's guidance
+                            helped me secure admission to IIT Bombay."</p>
+                        <div class="testimonial-author">
+                            <div class="author-img">
+                                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Student">
+                            </div>
+                            <div>
+                                <h6 class="mb-0">Sneha Reddy</h6>
+                                <small class="text-muted">IIT Bombay Student</small>
+                                <div class="mt-1">
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h3 class="cta-title">Join Our Educational Community</h3>
+                <p class="mb-4">Experience the EduPro difference in personalized learning</p>
+                <div class="d-flex flex-wrap justify-content-center gap-3">
+                    <a href="#" class="btn btn-light btn-lg px-5 py-3">Become a Student</a>
+                    <a href="#" class="btn btn-outline-light btn-lg px-5 py-3">Join as Tutor</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <h3 class="navbar-brand text-white">EduPro <span>Tutors</span></h3>
+                    <p class="mt-3">Providing quality education through personalized tutoring, online classes, and
+                        coaching for students across India since 2010.</p>
+                    <div class="social-links mt-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About Us</a>
+                        <a href="#">Courses</a>
+                        <a href="#">Tutors</a>
+                        <a href="#">Pricing</a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="footer-title">Resources</h5>
+                    <div class="footer-links">
+                        <a href="#">Blog</a>
+                        <a href="#">Study Materials</a>
+                        <a href="#">Practice Tests</a>
+                        <a href="#">Career Guidance</a>
+                        <a href="#">FAQ</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h5 class="footer-title">Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> 123 Education Street, Mumbai, India
+                        </li>
+                        <li class="mb-2"><i class="fas fa-phone-alt me-2"></i> +91 98765 43210</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@edupro.in</li>
+                        <li class="mb-2"><i class="fas fa-clock me-2"></i> Mon-Sat: 9AM - 7PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 EduPro Tutors | All Rights Reserved | Designed with <i
+                        class="fas fa-heart text-danger"></i> for Education </p>
+                <p>Powered by <a href="https://www.friendscampus.com/" target="_blank" rel="noopener"
+                        class="friendscampus">FriendsCampus</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js"
+        integrity="sha384-7qAoOXltbVP82dhxHAUje59V5r2YsVfBafyUDxEdApLPmcdhBPg1DKg1ERo0BZlK"
+        crossorigin="anonymous"></script>
+
+    <script>
+        // Simple animation for elements when they come into view
+        document.addEventListener('DOMContentLoaded', function () {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fadeIn');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.mission-content, .value-card, .timeline-item, .card').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+
+</html>

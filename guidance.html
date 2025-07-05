@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Guidance | EduPro Tutors</title>
+    <!-- Bootstrap 5.3.7 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Rubik:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --accent: #4cc9f0;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #4ade80;
+            --warning: #facc15;
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rubik', sans-serif;
+            color: #334155;
+            background-color: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        /* Header & Navigation */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            padding: 1rem 0;
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 0.7rem 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.8rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled .navbar-brand {
+            font-size: 1.6rem;
+        }
+
+        .navbar-brand span {
+            color: var(--accent);
+        }
+
+        .nav-link {
+            font-weight: 500;
+            margin: 0 0.5rem;
+            position: relative;
+            color: var(--dark);
+            transition: all 0.3s ease;
+            padding: 0.5rem 0 !important;
+        }
+
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            background: var(--gradient);
+            transition: width 0.3s ease;
+            border-radius: 10px;
+        }
+
+        .nav-link:hover:after,
+        .nav-link.active:after {
+            width: 100%;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary);
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            border: none;
+            padding: 0.8rem 1.8rem;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(67, 97, 238, 0.4);
+        }
+
+        .btn-outline-primary {
+            color: var(--primary);
+            border-color: var(--primary);
+            padding: 0.8rem 1.8rem;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-primary:hover {
+            background: var(--gradient);
+            color: white;
+            border-color: transparent;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(67, 97, 238, 0.3);
+        }
+
+        .navbar-toggler:focus,
+        .navbar-toggler:active,
+        .navbar-toggler-icon:focus {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 6rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            color: #475569;
+            max-width: 600px;
+        }
+
+        /* Features Section */
+        .section-title {
+            position: relative;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            color: #64748b;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: var(--gradient);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+            height: 100%;
+            border: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: var(--gradient);
+            opacity: 0.05;
+            z-index: -1;
+            transition: all 0.4s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(67, 97, 238, 0.15);
+        }
+
+        .feature-card:hover:before {
+            height: 100%;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: -40px auto 20px;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 10px 20px rgba(67, 97, 238, 0.2);
+        }
+
+        /* Guidance Cards */
+        .guidance-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+            height: 100%;
+            position: relative;
+        }
+
+        .guidance-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(67, 97, 238, 0.15);
+        }
+
+        .guidance-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .guidance-content {
+            padding: 1.5rem;
+        }
+
+        .guidance-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        /* Career Path Section */
+        .career-path {
+            background: linear-gradient(to bottom, #f8fafc 0%, #f1f5f9 100%);
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .path-item {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .path-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .path-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+        }
+
+        .path-content h4 {
+            margin-bottom: 1rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 6rem 0;
+            background-color: white;
+        }
+
+        .accordion-button {
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 1.25rem 1.5rem;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background-color: rgba(67, 97, 238, 0.05);
+            color: var(--primary);
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: rgba(67, 97, 238, 0.2);
+        }
+
+        .accordion-item {
+            margin-bottom: 1rem;
+            border-radius: 10px !important;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--gradient);
+            padding: 5rem 0;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section:before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            top: -150px;
+            right: -150px;
+        }
+
+        .cta-section:after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            bottom: -100px;
+            left: -100px;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: #cbd5e1;
+            padding: 5rem 0 2rem;
+        }
+
+        .footer-title {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: var(--accent);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-links a {
+            display: block;
+            color: #94a3b8;
+            text-decoration: none;
+            margin-bottom: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            margin-top: 3rem;
+            display: flex;
+            text-align: center;
+            justify-content: space-between;
+        }
+
+        .friendscampus {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .animate-pulse {
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1199px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 4rem 0;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .cta-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .cta-title {
+                font-size: 1.8rem;
+            }
+
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+
+            .btn-primary,
+            .btn-outline-primary {
+                padding: 0.6rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .copyright {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">EduPro <span>Tutors</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style="outline: none;"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="class.html">Classes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="announcement.html">Announcements</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="guidance.html">Guidance</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <div class="ms-lg-3 mt-2 mt-lg-0">
+                    <a href="#" class="btn btn-outline-primary">Book a Demo Class</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="hero-title animate__animated animate__fadeInDown">Academic & Career Guidance</h1>
+                    <p class="hero-subtitle animate__animated animate__fadeIn animate__delay-1s">Expert guidance to help
+                        students make informed decisions about their academic journey and future career paths. Our
+                        counselors help you navigate through educational choices with confidence.</p>
+                    <div
+                        class="d-flex flex-wrap gap-3 justify-content-center animate__animated animate__fadeIn animate__delay-1s">
+                        <a href="#career-paths" class="btn btn-primary">Explore Career Paths</a>
+                        <a href="#faq" class="btn btn-outline-primary">View FAQs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guidance Services Section -->
+    <section class="py-6 bg-white">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Guidance Services</h2>
+                <p>Comprehensive support to help students achieve their academic and career goals</p>
+            </div>
+            <div class="row g-4 mt-5">
+                <div class="col-md-6 col-lg-4">
+                    <div class="guidance-card animate__animated animate__fadeInUp">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80"
+                            alt="Career Counseling" class="img-fluid">
+                        <div class="guidance-content">
+                            <span class="badge bg-primary guidance-badge">Counseling</span>
+                            <h5 class="guidance-title">Career Counseling</h5>
+                            <p>Personalized career assessment and guidance to help students identify suitable career
+                                paths based on their interests, skills, and academic performance.</p>
+                            <ul class="list-unstyled mt-3">
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Career aptitude
+                                    tests</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Industry trend
+                                    analysis</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Personalized
+                                    roadmap</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="guidance-card animate__animated animate__fadeInUp animate__delay-1s">
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&q=80"
+                            alt="College Admissions" class="img-fluid">
+                        <div class="guidance-content">
+                            <span class="badge bg-success guidance-badge">Admissions</span>
+                            <h5 class="guidance-title">College Admissions Guidance</h5>
+                            <p>Expert assistance with college applications, essay reviews, and interview preparation for
+                                domestic and international universities.</p>
+                            <ul class="list-unstyled mt-3">
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Application
+                                    strategy</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Essay editing
+                                </li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Interview
+                                    preparation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="guidance-card animate__animated animate__fadeInUp animate__delay-2s">
+                        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=600&q=80"
+                            alt="Study Abroad" class="img-fluid">
+                        <div class="guidance-content">
+                            <span class="badge bg-info guidance-badge">International</span>
+                            <h5 class="guidance-title">Study Abroad Assistance</h5>
+                            <p>Comprehensive support for students planning to study abroad, including country selection,
+                                university shortlisting, and visa guidance.</p>
+                            <ul class="list-unstyled mt-3">
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Country
+                                    comparison</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Scholarship
+                                    guidance</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Visa
+                                    documentation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="guidance-card animate__animated animate__fadeInUp">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80"
+                            alt="Competitive Exams" class="img-fluid">
+                        <div class="guidance-content">
+                            <span class="badge bg-warning guidance-badge">Exams</span>
+                            <h5 class="guidance-title">Competitive Exam Preparation</h5>
+                            <p>Strategic guidance for various competitive exams like JEE, NEET, UPSC, CAT, and more with
+                                customized study plans.</p>
+                            <ul class="list-unstyled mt-3">
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Exam pattern
+                                    analysis</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Study schedule
+                                </li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Mock test
+                                    strategy</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="guidance-card animate__animated animate__fadeInUp animate__delay-1s">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80"
+                            alt="Skill Development" class="img-fluid">
+                        <div class="guidance-content">
+                            <span class="badge bg-danger guidance-badge">Skills</span>
+                            <h5 class="guidance-title">Skill Development Programs</h5>
+                            <p>Identify and develop essential skills needed for academic success and future career
+                                growth through our specialized programs.</p>
+                            <ul class="list-unstyled mt-3">
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Critical thinking
+                                </li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Communication
+                                    skills</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Time management
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="guidance-card animate__animated animate__fadeInUp animate__delay-2s">
+                        <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&w=600&q=80"
+                            alt="Mental Wellness" class="img-fluid">
+                        <div class="guidance-content">
+                            <span class="badge bg-purple guidance-badge" style="background: #8b5cf6;">Wellness</span>
+                            <h5 class="guidance-title">Student Wellness Programs</h5>
+                            <p>Support for mental health and stress management to help students maintain balance during
+                                their academic journey.</p>
+                            <ul class="list-unstyled mt-3">
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Stress management
+                                </li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Study-life
+                                    balance</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Mindfulness
+                                    techniques</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Path Section -->
+    <section class="career-path" id="career-paths">
+        <div class="container">
+            <div class="section-title">
+                <h2>Popular Career Paths</h2>
+                <p>Explore various career options based on different academic streams</p>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-lg-6">
+                    <div class="path-item animate__animated animate__fadeInLeft">
+                        <div class="path-number">1</div>
+                        <div class="path-content">
+                            <h4>Science Stream Careers</h4>
+                            <p>Explore exciting career options for students pursuing Physics, Chemistry, Mathematics,
+                                and Biology.</p>
+                            <ul class="list-unstyled mt-3">
+                                <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i> Engineering
+                                    (Various Specializations)</li>
+                                <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i> Medical (MBBS,
+                                    BDS, Pharmacy)</li>
+                                <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i> Pure Sciences
+                                    (Research, Academia)</li>
+                                <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i> Architecture &
+                                    Design</li>
+                                <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i> Data Science &
+                                    Analytics</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="path-item animate__animated animate__fadeInRight">
+                        <div class="path-number">2</div>
+                        <div class="path-content">
+                            <h4>Commerce Stream Careers</h4>
+                            <p>Diverse career opportunities for students with interest in business, finance, and
+                                economics.</p>
+                            <ul class="list-unstyled mt-3">
+                                <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i> Chartered
+                                    Accountancy (CA)</li>
+                                <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i> Company Secretary
+                                    (CS)</li>
+                                <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i> Business
+                                    Management (MBA)</li>
+                                <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i> Banking &
+                                    Financial Services</li>
+                                <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i> Entrepreneurship
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="path-item animate__animated animate__fadeInLeft">
+                        <div class="path-number">3</div>
+                        <div class="path-content">
+                            <h4>Arts/Humanities Careers</h4>
+                            <p>Rewarding career paths for students with creative and analytical thinking skills.</p>
+                            <ul class="list-unstyled mt-3">
+                                <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i> Civil Services
+                                    (UPSC)</li>
+                                <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i> Law (LLB,
+                                    Judiciary)</li>
+                                <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i> Psychology &
+                                    Counseling</li>
+                                <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i> Media & Journalism
+                                </li>
+                                <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i> Social Work & NGOs
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="path-item animate__animated animate__fadeInRight">
+                        <div class="path-number">4</div>
+                        <div class="path-content">
+                            <h4>Emerging Career Fields</h4>
+                            <p>New-age career options with growing demand in the digital economy.</p>
+                            <ul class="list-unstyled mt-3">
+                                <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i> Artificial
+                                    Intelligence & Machine Learning</li>
+                                <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i> Cybersecurity &
+                                    Ethical Hacking</li>
+                                <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i> Digital Marketing
+                                    & E-commerce</li>
+                                <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i> Renewable Energy &
+                                    Sustainability</li>
+                                <li class="mb-2"><i class="fas fa-arrow-right text-primary me-2"></i> Biotechnology &
+                                    Genetic Engineering</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p>Answers to common questions about academic and career guidance</p>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-lg-8 mx-auto">
+                    <div class="accordion" id="guidanceFAQ">
+                        <div class="accordion-item animate__animated animate__fadeInUp">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapse" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq1" aria-expanded="false" aria-controls="faq1">
+                                    When should students start career planning?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#guidanceFAQ">
+                                <div class="accordion-body">
+                                    <p>We recommend starting career exploration as early as class 8-9. Early awareness
+                                        helps students make informed subject choices in class 11. However, our guidance
+                                        is tailored to each student's stage, whether they're in middle school, high
+                                        school, or college.</p>
+                                    <p>Key milestones:</p>
+                                    <ul>
+                                        <li>Class 8-10: Career awareness and exploration</li>
+                                        <li>Class 11-12: Subject selection and career path planning</li>
+                                        <li>College years: Specialization and skill development</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item animate__animated animate__fadeInUp animate__delay-1s">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+                                    How do you help students choose the right career?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#guidanceFAQ">
+                                <div class="accordion-body">
+                                    <p>Our career guidance process involves multiple steps to ensure students make
+                                        informed decisions:</p>
+                                    <ol>
+                                        <li><strong>Aptitude Assessment:</strong> We use scientifically validated tests
+                                            to identify strengths and interests.</li>
+                                        <li><strong>Personality Profiling:</strong> Understanding temperament and work
+                                            style preferences.</li>
+                                        <li><strong>Career Exploration:</strong> Exposure to various professions through
+                                            sessions with professionals.</li>
+                                        <li><strong>Academic Alignment:</strong> Matching career aspirations with
+                                            appropriate educational paths.</li>
+                                        <li><strong>Parent-Student Counseling:</strong> Facilitating family discussions
+                                            about career choices.</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item animate__animated animate__fadeInUp animate__delay-2s">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+                                    What's the difference between career counseling and academic guidance?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#guidanceFAQ">
+                                <div class="accordion-body">
+                                    <p>While related, these services focus on different aspects of student development:
+                                    </p>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Career Counseling</th>
+                                                <th>Academic Guidance</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Focuses on long-term career planning</td>
+                                                <td>Focuses on immediate academic decisions</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Helps identify suitable professions</td>
+                                                <td>Helps choose subjects/courses</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Includes skill gap analysis</td>
+                                                <td>Includes study strategy development</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Looks at 5-10 year horizon</td>
+                                                <td>Addresses current academic challenges</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p class="mt-3">We provide both services in an integrated manner to ensure academic
+                                        choices align with career goals.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item animate__animated animate__fadeInUp animate__delay-3s">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
+                                    How do you assist with study abroad planning?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#guidanceFAQ">
+                                <div class="accordion-body">
+                                    <p>Our study abroad assistance includes comprehensive support at every stage:</p>
+                                    <ul>
+                                        <li><strong>Country Selection:</strong> Analyzing factors like education
+                                            quality, costs, visa policies, and post-study work options</li>
+                                        <li><strong>University Shortlisting:</strong> Matching student profile with
+                                            suitable institutions</li>
+                                        <li><strong>Application Strategy:</strong> Timeline planning and document
+                                            preparation</li>
+                                        <li><strong>Test Preparation:</strong> Guidance for IELTS, TOEFL, SAT, GRE, GMAT
+                                            etc.</li>
+                                        <li><strong>Scholarship Assistance:</strong> Identifying funding opportunities
+                                            and application support</li>
+                                        <li><strong>Visa Guidance:</strong> Documentation and interview preparation</li>
+                                        <li><strong>Pre-departure Briefing:</strong> Cultural orientation and
+                                            settling-in advice</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item animate__animated animate__fadeInUp animate__delay-4s">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq5" aria-expanded="false" aria-controls="faq5">
+                                    Do you provide mental health support for students?
+                                </button>
+                            </h2>
+                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#guidanceFAQ">
+                                <div class="accordion-body">
+                                    <p>Yes, we offer specialized student wellness programs to address the growing need
+                                        for mental health support in academic environments. Our services include:</p>
+                                    <ul>
+                                        <li><strong>Stress Management Workshops:</strong> Techniques to handle academic
+                                            pressure</li>
+                                        <li><strong>One-on-One Counseling:</strong> Confidential sessions with trained
+                                            counselors</li>
+                                        <li><strong>Study-Life Balance Guidance:</strong> Creating sustainable routines
+                                        </li>
+                                        <li><strong>Exam Anxiety Management:</strong> Strategies to perform under
+                                            pressure</li>
+                                        <li><strong>Parent Education:</strong> Helping families support student
+                                            wellbeing</li>
+                                    </ul>
+                                    <p class="mt-3">We maintain strict confidentiality and provide a safe,
+                                        non-judgmental space for students to discuss their challenges.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h3 class="cta-title">Need Personalized Career Guidance?</h3>
+                <p class="mb-4">Our expert counselors are ready to help you make informed decisions about your academic
+                    and professional future.</p>
+                <div class="d-flex flex-wrap justify-content-center gap-3">
+                    <a href="contact.html" class="btn btn-light btn-lg px-5 py-3 animate-pulse">Schedule a Session</a>
+                    <a href="tel:+919876543210" class="btn btn-outline-light btn-lg px-5 py-3"><i
+                            class="fas fa-phone-alt me-2"></i>Call a Counselor</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <h3 class="navbar-brand text-white">EduPro <span>Tutors</span></h3>
+                    <p class="mt-3">Providing quality education through personalized tutoring, online classes, and
+                        coaching for students across India since 2010.</p>
+                    <div class="social-links mt-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About Us</a>
+                        <a href="class.html">Courses</a>
+                        <a href="guidance.html">Guidance</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="footer-title">Resources</h5>
+                    <div class="footer-links">
+                        <a href="announcement.html">Announcements</a>
+                        <a href="#">Study Materials</a>
+                        <a href="#">Practice Tests</a>
+                        <a href="guidance.html">Career Guidance</a>
+                        <a href="#">FAQ</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h5 class="footer-title">Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> 123 Education Street, Mumbai, India
+                        </li>
+                        <li class="mb-2"><i class="fas fa-phone-alt me-2"></i> +91 98765 43210</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@edupro.in</li>
+                        <li class="mb-2"><i class="fas fa-clock me-2"></i> Mon-Sat: 9AM - 7PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 EduPro Tutors | All Rights Reserved | Designed with <i
+                        class="fas fa-heart text-danger"></i> for Education </p>
+                <p>Powered by <a href="https://www.friendscampus.com/" target="_blank" rel="noopener"
+                        class="friendscampus">FriendsCampus</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js"
+        integrity="sha384-7qAoOXltbVP82dhxHAUje59V5r2YsVfBafyUDxEdApLPmcdhBPg1DKg1ERo0BZlK"
+        crossorigin="anonymous"></script>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Animation on scroll
+        document.addEventListener('DOMContentLoaded', function () {
+            const animateElements = document.querySelectorAll('.animate__animated');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const animation = entry.target.getAttribute('data-animation');
+                        entry.target.classList.add(animation);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            animateElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+
+</html>

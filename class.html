@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses | EduPro Tutors - Quality Education Solutions in India</title>
+    <!-- Bootstrap 5.3.7 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Rubik:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --accent: #4cc9f0;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #4ade80;
+            --warning: #facc15;
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rubik', sans-serif;
+            color: #334155;
+            background-color: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        /* Header & Navigation */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            padding: 1.2rem 0;
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.8rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .navbar-brand span {
+            color: var(--accent);
+        }
+
+        .nav-link {
+            font-weight: 500;
+            margin: 0 0.5rem;
+            position: relative;
+            color: var(--dark);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            background: var(--gradient);
+            transition: width 0.3s ease;
+            border-radius: 10px;
+        }
+
+        .nav-link:hover:after,
+        .nav-link.active:after {
+            width: 100%;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary);
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            border: none;
+            padding: 0.8rem 1.8rem;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(67, 97, 238, 0.4);
+        }
+
+        .btn-outline-primary {
+            color: var(--primary);
+            border-color: var(--primary);
+            padding: 0.8rem 1.8rem;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-primary:hover {
+            background: var(--gradient);
+            color: white;
+            border-color: transparent;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(67, 97, 238, 0.3);
+        }
+
+        /* Courses Hero Section */
+        .courses-hero {
+            background: linear-gradient(rgba(67, 97, 238, 0.9), rgba(67, 97, 238, 0.8)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 8rem 0 5rem;
+            color: white;
+            text-align: center;
+        }
+
+        .courses-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .courses-hero p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Categories Section */
+        .categories-section {
+            padding: 6rem 0;
+            background-color: white;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+            height: 100%;
+            position: relative;
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            border: 2px solid #f1f5f9;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(67, 97, 238, 0.15);
+            border-color: var(--primary);
+        }
+
+        .category-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 2rem;
+        }
+
+        /* Courses Section */
+        .courses-section {
+            padding: 6rem 0;
+            background: linear-gradient(to bottom, #f8fafc 0%, #f1f5f9 100%);
+        }
+
+        .course-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+            height: 100%;
+            position: relative;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(67, 97, 238, 0.15);
+        }
+
+        .course-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .course-content {
+            padding: 1.5rem;
+        }
+
+        .course-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .course-price {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--primary);
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 6rem 0;
+            background-color: white;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: all 0.3s ease;
+            height: 100%;
+            border: 2px solid #f1f5f9;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(67, 97, 238, 0.15);
+            border-color: var(--primary);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 1.8rem;
+        }
+
+        /* Testimonials */
+        .testimonial-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin: 1rem;
+            position: relative;
+        }
+
+        .testimonial-card:before {
+            content: "" ";
+ position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 5rem;
+            color: rgba(67, 97, 238, 0.1);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            margin-top: 1.5rem;
+        }
+
+        .author-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 1rem;
+            border: 3px solid var(--primary);
+            padding: 3px;
+        }
+
+        .author-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 6rem 0;
+            background: linear-gradient(to bottom, #f8fafc 0%, #f1f5f9 100%);
+        }
+
+        .accordion-button {
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 1.25rem;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background-color: rgba(67, 97, 238, 0.1);
+            color: var(--primary);
+            box-shadow: none;
+        }
+
+        .accordion-item {
+            margin-bottom: 1rem;
+            border-radius: 10px !important;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--gradient);
+            padding: 5rem 0;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section:before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            top: -150px;
+            right: -150px;
+        }
+
+        .cta-section:after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            bottom: -100px;
+            left: -100px;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: #cbd5e1;
+            padding: 5rem 0 2rem;
+        }
+
+        .footer-title {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: var(--accent);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-links a {
+            display: block;
+            color: #94a3b8;
+            text-decoration: none;
+            margin-bottom: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        .delay-4 {
+            animation-delay: 0.8s;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .courses-hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .courses-hero {
+                padding: 6rem 0 3rem;
+            }
+
+            .courses-hero h1 {
+                font-size: 2.3rem;
+            }
+
+            .courses-hero p {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .courses-hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">EduPro <span>Tutors</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="class.html">Classes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="announcement.html">Announcements</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="guidance.html">Guidance</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <div class="ms-3">
+                    <button class="btn btn-outline-primary">Book a Demo Class</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Courses Hero Section -->
+    <section class="courses-hero">
+        <div class="container">
+            <h1 class="animate-fadeIn">Explore Our Comprehensive Courses</h1>
+            <p class="animate-fadeIn delay-1">Discover personalized learning experiences designed to help you achieve
+                academic excellence and competitive success</p>
+            <div class="mt-4 animate-fadeIn delay-2">
+                <a href="#courses" class="btn btn-light btn-lg me-2">Browse Courses</a>
+                <a href="#categories" class="btn btn-outline-light btn-lg">View Categories</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories-section" id="categories">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="mb-3">Course Categories</h2>
+                    <p class="text-muted">Find the perfect learning path for your educational goals</p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3 animate-fadeIn">
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h4>School Curriculum</h4>
+                        <p>CBSE, ICSE, State Boards for classes 1-12</p>
+                        <div class="mt-3">
+                            <span class="badge bg-light text-primary">35+ Courses</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 animate-fadeIn delay-1">
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h4>Engineering</h4>
+                        <p>IIT JEE, BITSAT, VITEEE and other entrance exams</p>
+                        <div class="mt-3">
+                            <span class="badge bg-light text-primary">18 Courses</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 animate-fadeIn delay-2">
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h4>Medical</h4>
+                        <p>NEET, AIIMS, JIPMER and medical entrance exams</p>
+                        <div class="mt-3">
+                            <span class="badge bg-light text-primary">12 Courses</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 animate-fadeIn delay-3">
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h4>Competitive Exams</h4>
+                        <p>Banking, SSC, UPSC, Railways and government jobs</p>
+                        <div class="mt-3">
+                            <span class="badge bg-light text-primary">25 Courses</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 animate-fadeIn">
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h4>Programming</h4>
+                        <p>Python, Java, Web Development, Data Science</p>
+                        <div class="mt-3">
+                            <span class="badge bg-light text-primary">20 Courses</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 animate-fadeIn delay-1">
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <h4>Languages</h4>
+                        <p>English, French, German, Spanish, Japanese</p>
+                        <div class="mt-3">
+                            <span class="badge bg-light text-primary">15 Courses</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 animate-fadeIn delay-2">
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h4>Creative Arts</h4>
+                        <p>Music, Painting, Photography, Creative Writing</p>
+                        <div class="mt-3">
+                            <span class="badge bg-light text-primary">10 Courses</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 animate-fadeIn delay-3">
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4>Business Skills</h4>
+                        <p>Management, Finance, Marketing, Entrepreneurship</p>
+                        <div class="mt-3">
+                            <span class="badge bg-light text-primary">8 Courses</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="courses-section" id="courses">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="mb-3">Featured Courses</h2>
+                    <p class="text-muted">Most popular courses chosen by our students</p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="course-card animate-fadeIn">
+                        <img src="https://images.unsplash.com/photo-1561089489-f13d5e730d72?auto=format&fit=crop&w=600&q=80"
+                            alt="CBSE Classes" class="img-fluid">
+                        <div class="course-content">
+                            <span class="badge bg-primary course-badge">CBSE/ICSE</span>
+                            <h5 class="course-title">CBSE Class 12 Physics Mastery</h5>
+                            <p>Comprehensive coverage of CBSE Physics syllabus with practical applications.</p>
+                            <ul class="list-unstyled mb-3">
+                                <li class="mb-2"><i class="fas fa-clock text-primary me-2"></i> 120 Hours Duration</li>
+                                <li class="mb-2"><i class="fas fa-book text-primary me-2"></i> 15 Modules</li>
+                                <li class="mb-2"><i class="fas fa-certificate text-primary me-2"></i> Certificate
+                                    Provided</li>
+                            </ul>
+                            <div class="course-meta">
+                                <div class="course-price">₹8,999</div>
+                                <div>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <span>4.9 (1.2K)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="course-card animate-fadeIn delay-1">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8111e0a4b0a?auto=format&fit=crop&w=600&q=80"
+                            alt="IIT JEE" class="img-fluid">
+                        <div class="course-content">
+                            <span class="badge bg-success course-badge">Engineering</span>
+                            <h5 class="course-title">IIT JEE Advanced Crash Course</h5>
+                            <p>Intensive preparation for JEE Advanced with problem-solving strategies.</p>
+                            <ul class="list-unstyled mb-3">
+                                <li class="mb-2"><i class="fas fa-clock text-primary me-2"></i> 200 Hours Duration</li>
+                                <li class="mb-2"><i class="fas fa-book text-primary me-2"></i> 25 Modules</li>
+                                <li class="mb-2"><i class="fas fa-certificate text-primary me-2"></i> Certificate
+                                    Provided</li>
+                            </ul>
+                            <div class="course-meta">
+                                <div class="course-price">₹24,999</div>
+                                <div>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <span>4.8 (890)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="course-card animate-fadeIn delay-2">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&q=80"
+                            alt="NEET" class="img-fluid">
+                        <div class="course-content">
+                            <span class="badge bg-danger course-badge">Medical</span>
+                            <h5 class="course-title">NEET Biology Intensive Program</h5>
+                            <p>Complete NEET Biology syllabus with focus on diagrams and concepts.</p>
+                            <ul class="list-unstyled mb-3">
+                                <li class="mb-2"><i class="fas fa-clock text-primary me-2"></i> 150 Hours Duration</li>
+                                <li class="mb-2"><i class="fas fa-book text-primary me-2"></i> 20 Modules</li>
+                                <li class="mb-2"><i class="fas fa-certificate text-primary me-2"></i> Certificate
+                                    Provided</li>
+                            </ul>
+                            <div class="course-meta">
+                                <div class="course-price">₹18,999</div>
+                                <div>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <span>4.7 (950)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="course-card animate-fadeIn">
+                        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=600&q=80"
+                            alt="Programming" class="img-fluid">
+                        <div class="course-content">
+                            <span class="badge bg-purple course-badge" style="background: #8b5cf6;">Programming</span>
+                            <h5 class="course-title">Python Programming Bootcamp</h5>
+                            <p>Learn Python from scratch to advanced level with real-world projects.</p>
+                            <ul class="list-unstyled mb-3">
+                                <li class="mb-2"><i class="fas fa-clock text-primary me-2"></i> 80 Hours Duration</li>
+                                <li class="mb-2"><i class="fas fa-book text-primary me-2"></i> 12 Modules</li>
+                                <li class="mb-2"><i class="fas fa-certificate text-primary me-2"></i> Certificate
+                                    Provided</li>
+                            </ul>
+                            <div class="course-meta">
+                                <div class="course-price">₹12,999</div>
+                                <div>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <span>4.9 (1.5K)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="course-card animate-fadeIn delay-1">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80"
+                            alt="Competitive Exams" class="img-fluid">
+                        <div class="course-content">
+                            <span class="badge bg-info course-badge">Competitive</span>
+                            <h5 class="course-title">Banking Exam Mastery Program</h5>
+                            <p>Complete preparation for IBPS, SBI, and other banking exams.</p>
+                            <ul class="list-unstyled mb-3">
+                                <li class="mb-2"><i class="fas fa-clock text-primary me-2"></i> 180 Hours Duration</li>
+                                <li class="mb-2"><i class="fas fa-book text-primary me-2"></i> 22 Modules</li>
+                                <li class="mb-2"><i class="fas fa-certificate text-primary me-2"></i> Certificate
+                                    Provided</li>
+                            </ul>
+                            <div class="course-meta">
+                                <div class="course-price">₹15,999</div>
+                                <div>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <span>4.6 (780)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="course-card animate-fadeIn delay-2">
+                        <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=600&q=80"
+                            alt="Language Courses" class="img-fluid">
+                        <div class="course-content">
+                            <span class="badge bg-warning course-badge">Languages</span>
+                            <h5 class="course-title">French Language - Beginner to Advanced</h5>
+                            <p>Comprehensive French course with certified native instructors.</p>
+                            <ul class="list-unstyled mb-3">
+                                <li class="mb-2"><i class="fas fa-clock text-primary me-2"></i> 100 Hours Duration</li>
+                                <li class="mb-2"><i class="fas fa-book text-primary me-2"></i> 10 Modules</li>
+                                <li class="mb-2"><i class="fas fa-certificate text-primary me-2"></i> Certificate
+                                    Provided</li>
+                            </ul>
+                            <div class="course-meta">
+                                <div class="course-price">₹10,999</div>
+                                <div>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <span>4.9 (620)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a href="#" class="btn btn-primary px-5 py-3">View All Courses</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="mb-3">Why Choose Our Courses</h2>
+                    <p class="text-muted">Experience the EduPro difference in online and offline learning</p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4 animate-fadeIn">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <h4>Expert Instructors</h4>
+                        <p>Learn from industry experts and experienced educators with proven track records.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 animate-fadeIn delay-1">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <h4>Flexible Learning</h4>
+                        <p>Access courses anytime, anywhere with our online platform and mobile app.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 animate-fadeIn delay-2">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h4>Comprehensive Material</h4>
+                        <p>Get access to study materials, practice tests, and recorded lectures.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 animate-fadeIn">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h4>Doubt Support</h4>
+                        <p>24/7 doubt resolution with subject matter experts and peer communities.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 animate-fadeIn delay-1">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <h4>Progress Tracking</h4>
+                        <p>Monitor your learning journey with detailed analytics and performance reports.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 animate-fadeIn delay-2">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h4>Certification</h4>
+                        <p>Receive industry-recognized certificates upon course completion.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-6 bg-white">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="mb-3">Student Success Stories</h2>
+                    <p class="text-muted">Hear from students who transformed their learning with our courses</p>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <p>"The IIT JEE Advanced Crash Course helped me secure AIR 427. The problem-solving strategies
+                            and mock tests were invaluable."</p>
+                        <div class="testimonial-author">
+                            <div class="author-img">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Student">
+                            </div>
+                            <div>
+                                <h6 class="mb-0">Rahul Verma</h6>
+                                <small class="text-muted">IIT Bombay</small>
+                                <div class="mt-1">
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <p>"The Python Bootcamp gave me the skills to switch careers into data science. The projects
+                            were industry-relevant and challenging."</p>
+                        <div class="testimonial-author">
+                            <div class="author-img">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Student">
+                            </div>
+                            <div>
+                                <h6 class="mb-0">Priya Reddy</h6>
+                                <small class="text-muted">Data Analyst</small>
+                                <div class="mt-1">
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <p>"Thanks to the Banking Exam Mastery program, I cleared SBI PO in my first attempt. The
+                            comprehensive material and mock tests were excellent."</p>
+                        <div class="testimonial-author">
+                            <div class="author-img">
+                                <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Student">
+                            </div>
+                            <div>
+                                <h6 class="mb-0">Arjun Mehta</h6>
+                                <small class="text-muted">SBI Probationary Officer</small>
+                                <div class="mt-1">
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="mb-3">Frequently Asked Questions</h2>
+                    <p class="text-muted">Find answers to common questions about our courses</p>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="accordion" id="coursesAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapse" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne">
+                                    How do I choose the right course for me?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse"
+                                data-bs-parent="#coursesAccordion">
+                                <div class="accordion-body">
+                                    We offer free counseling sessions where our education experts assess your goals,
+                                    current level, and learning preferences to recommend the most suitable course. You
+                                    can also take our online assessment tests for specific subjects.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseTwo">
+                                    What is the difference between live and self-paced courses?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse"
+                                data-bs-parent="#coursesAccordion">
+                                <div class="accordion-body">
+                                    Live courses feature scheduled classes with real-time interaction with instructors
+                                    and peers. Self-paced courses provide pre-recorded lectures and materials that you
+                                    can access anytime. Both options include assignments, tests, and doubt resolution
+                                    support.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseThree">
+                                    Can I access course materials after completion?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse"
+                                data-bs-parent="#coursesAccordion">
+                                <div class="accordion-body">
+                                    Yes, you'll have access to all course materials, including lecture recordings, for
+                                    12 months after course completion. For competitive exam courses, access extends
+                                    until your exam date.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseFour">
+                                    What payment options do you offer?
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse"
+                                data-bs-parent="#coursesAccordion">
+                                <div class="accordion-body">
+                                    We accept all major credit/debit cards, net banking, UPI, and EMI options. We also
+                                    offer installment plans for courses above ₹15,000. Scholarship options are available
+                                    for meritorious students.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseFive">
+                                    Do you offer placement assistance?
+                                </button>
+                            </h2>
+                            <div id="collapseFive" class="accordion-collapse collapse"
+                                data-bs-parent="#coursesAccordion">
+                                <div class="accordion-body">
+                                    For professional courses like programming and business skills, we provide dedicated
+                                    placement assistance including resume building, interview preparation, and job
+                                    referrals to our partner companies.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h3 class="cta-title">Ready to Start Your Learning Journey?</h3>
+                <p class="mb-4">Join thousands of successful students who have transformed their careers with EduPro</p>
+                <div class="d-flex flex-wrap justify-content-center gap-3">
+                    <a href="#" class="btn btn-light btn-lg px-5 py-3">Enroll Now</a>
+                    <a href="#" class="btn btn-outline-light btn-lg px-5 py-3">Book Free Demo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <h3 class="navbar-brand text-white">EduPro <span>Tutors</span></h3>
+                    <p class="mt-3">Providing quality education through personalized tutoring, online classes, and
+                        coaching for students across India since 2010.</p>
+                    <div class="social-links mt-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About Us</a>
+                        <a href="courses.html">Courses</a>
+                        <a href="#">Tutors</a>
+                        <a href="#">Pricing</a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="footer-title">Resources</h5>
+                    <div class="footer-links">
+                        <a href="#">Blog</a>
+                        <a href="#">Study Materials</a>
+                        <a href="#">Practice Tests</a>
+                        <a href="#">Career Guidance</a>
+                        <a href="#">FAQ</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h5 class="footer-title">Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> 123 Education Street, Mumbai, India
+                        </li>
+                        <li class="mb-2"><i class="fas fa-phone-alt me-2"></i> +91 98765 43210</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@edupro.in</li>
+                        <li class="mb-2"><i class="fas fa-clock me-2"></i> Mon-Sat: 9AM - 7PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 EduPro Tutors | All Rights Reserved | Designed with <i
+                        class="fas fa-heart text-danger"></i> for Education </p>
+                <p>Powered by <a href="https://www.friendscampus.com/" target="_blank" rel="noopener"
+                        class="friendscampus">FriendsCampus</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js"
+        integrity="sha384-7qAoOXltbVP82dhxHAUje59V5r2YsVfBafyUDxEdApLPmcdhBPg1DKg1ERo0BZlK"
+        crossorigin="anonymous"></script>
+    <script>
+        // Simple animation for elements when they come into view
+        document.addEventListener('DOMContentLoaded', function () {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fadeIn');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.category-card, .course-card, .feature-card').forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+
+</html>
