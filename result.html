@@ -275,7 +275,7 @@
         .topper-card {
             background: white;
             border-radius: 16px;
-            overflow: hidden;
+            /* overflow: hidden; */
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
             transition: all 0.4s ease;
             height: 100%;
@@ -288,11 +288,11 @@
         }
 
         .topper-img {
-            width: 80px;
-            height: 80px;
+            width: 90px;
+            height: 90px;
             border-radius: 50%;
             overflow: hidden;
-            margin: -40px auto 1rem;
+            margin: 1rem auto;
             border: 3px solid white;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
@@ -413,6 +413,13 @@
             .results-container {
                 padding: 1.8rem;
             }
+
+            .stat-number {
+                font-size: 1.5rem !important;
+                font-weight: 900 !important;
+                color: var(--primary);
+                margin-bottom: 0.25rem;
+            }
         }
 
         @media (max-width: 768px) {
@@ -517,7 +524,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="index.html">Home</a>
                     </li>
